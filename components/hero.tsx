@@ -1,3 +1,4 @@
+import { blurBannerImageUrl } from "@/lib/blurImage";
 import Image from "next/image";
 
 export default function Hero() {
@@ -5,7 +6,13 @@ export default function Hero() {
     <div className="w-full">
       {/* Desktop Hero: full-screen background image */}
       <div className="hidden md:block relative h-screen">
-        <Image src="/banner.webp" alt="Hero" fill className="object-cover" />
+        <Image
+          src="/banner.webp"
+          alt="Hero"
+          fill
+          className="object-cover"
+          blurDataURL={blurBannerImageUrl}
+        />
       </div>
 
       {/* Mobile Hero: image with natural height */}
@@ -16,6 +23,7 @@ export default function Hero() {
           width={1920}
           height={1080}
           className="w-full h-auto object-contain"
+          blurDataURL={blurBannerImageUrl}
         />
       </div>
     </div>
