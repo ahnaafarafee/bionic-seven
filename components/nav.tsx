@@ -32,9 +32,8 @@ const navItems: NavItemType[] = [
     title: "Materials",
     href: "#",
     dropdown: [
-      { title: "Lecture Slides", href: "/materials/slides" },
-      { title: "Questions", href: "/materials/questions" },
-      { title: "Books", href: "/materials/books" },
+      { title: "Semester 1.1", href: "/materials/1.1" },
+      { title: "Semester 1.1", href: "/materials/1.2" },
     ],
   },
   {
@@ -59,7 +58,7 @@ interface NavItemProps {
   setOpenDropdownIndex?: (value: number | null) => void;
 }
 
-export default function Navigation() {
+export default function Nav() {
   // For mobile, track which dropdown (by index) is open
   const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(
     null
@@ -67,7 +66,9 @@ export default function Navigation() {
 
   return (
     <div className="flex justify-between items-center p-4 bg-white shadow-md relative">
-      <Image src="/logo.png" width={100} height={100} alt="logo" />
+      <Link href="/">
+        <Image src="/logo.png" width={100} height={100} alt="logo" />
+      </Link>
       {/* Desktop Navigation */}
       <div className="hidden md:flex space-x-6">
         {navItems.map((item, index) => (

@@ -1,6 +1,7 @@
 import { poppins } from "@/lib/fonts";
 import type { Metadata } from "next";
 import "./globals.css";
+import Nav from "@/components/nav";
 
 export const metadata: Metadata = {
   title: "Bionic 7",
@@ -15,7 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+        <Nav />
+        {children}
+      </body>
     </html>
   );
 }

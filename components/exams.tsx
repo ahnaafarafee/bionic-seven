@@ -13,7 +13,7 @@ interface Exam {
 const dummyExams: Exam[] = [
   {
     subject: "Biomedical Signal Processing Exam",
-    date: "2025-03-15T09:00:00", // Change these dates as needed
+    date: "2025-02-07T05:28:36.184Z", // Change these dates as needed
     link: "#",
   },
   {
@@ -43,22 +43,29 @@ function calculateCountdown(targetDate: Date): string {
 }
 
 export default function Exams() {
+  const [mounted, setMounted] = useState(false);
   const [countdowns, setCountdowns] = useState<string[]>(
     dummyExams.map((exam) => calculateCountdown(new Date(exam.date)))
   );
 
   useEffect(() => {
-    // Update countdowns every second
+    // Mark as mounted on the client so that dynamic content renders only after hydration.
+    setMounted(true);
+
     const interval = setInterval(() => {
-      const newCountdowns = dummyExams.map((exam) => {
-        const examDate = new Date(exam.date);
-        return calculateCountdown(examDate);
-      });
+      const newCountdowns = dummyExams.map((exam) =>
+        calculateCountdown(new Date(exam.date))
+      );
       setCountdowns(newCountdowns);
     }, 1000);
 
     return () => clearInterval(interval);
   }, []);
+
+  // Until the component has mounted on the client, render nothing
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div className="bg-white shadow-lg rounded-2xl p-6 border border-gray-200">
@@ -83,7 +90,7 @@ export default function Exams() {
             </div>
             <div className="mt-4 flex items-center justify-between">
               <div className="mt-2 sm:mt-0 text-sm font-semibold text-gray-700 flex items-center gap-2">
-                <span> Remaining: </span>
+                <span>Remaining:</span>
                 <span className="text-red-400">{countdowns[index]}</span>
               </div>
               <Link href={exam.link}>
