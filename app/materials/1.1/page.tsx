@@ -1,8 +1,11 @@
+import BreadcrumbNav from "@/components/breadcrumb-nav";
 import Link from "next/link";
 
 export default function FirstYearFirstSemesterMaterials() {
   return (
     <div>
+      <BreadcrumbNav />
+
       <h1>All Subjects</h1>
       <div className="flex flex-col text-blue-800">
         <Link href="/materials/1.1/bme1101" className="hover:underline">

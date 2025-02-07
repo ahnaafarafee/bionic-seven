@@ -1,5 +1,9 @@
-import React from "react";
+import BreadcrumbNav from "@/components/breadcrumb-nav";
 
 export default function LectureSlides() {
-  return <div>LectureSlides</div>;
+  return (
+    <div>
+      <BreadcrumbNav />
+    </div>
+  );
 }

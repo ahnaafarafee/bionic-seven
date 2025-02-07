@@ -1,3 +1,9 @@
+import BreadcrumbNav from "@/components/breadcrumb-nav";
+
 export default function Questions() {
-  return <div>Questions</div>;
+  return (
+    <div>
+      <BreadcrumbNav />
+    </div>
+  );
 }

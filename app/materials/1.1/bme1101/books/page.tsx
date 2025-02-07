@@ -1,3 +1,9 @@
+import BreadcrumbNav from "@/components/breadcrumb-nav";
+
 export default function Books() {
-  return <div>Books</div>;
+  return (
+    <div>
+      <BreadcrumbNav />
+    </div>
+  );
 }
