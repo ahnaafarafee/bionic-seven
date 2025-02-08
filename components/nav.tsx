@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Menu } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
 interface DropdownItem {
   title: string;
@@ -33,7 +33,7 @@ const navItems: NavItemType[] = [
     href: "#",
     dropdown: [
       { title: "Semester 1.1", href: "/materials/1.1" },
-      { title: "Semester 1.1", href: "/materials/1.2" },
+      { title: "Semester 1.2", href: "/materials/1.2" },
     ],
   },
   {
@@ -44,10 +44,10 @@ const navItems: NavItemType[] = [
       { title: "Semester 1.2", href: "/instructors/1.2" },
     ],
   },
+  { title: "Notice", href: "/notice" },
+  { title: "Events", href: "/events" },
   { title: "CRs", href: "/crs" },
   { title: "Photo Gallery", href: "/gallery" },
-  { title: "About Us", href: "/about" },
-  { title: "Contact", href: "/contact" },
 ];
 
 interface NavItemProps {

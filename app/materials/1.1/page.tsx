@@ -1,28 +1,83 @@
+"use client";
+
 import BreadcrumbNav from "@/components/breadcrumb-nav";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import Image from "next/image";
 import Link from "next/link";
+
+const subjects = [
+  {
+    id: "bme1101",
+    courseCode: "BME 1101",
+    courseTitle: "Introduction to Biomedical Engineering",
+    imgSrc: "/subject-pics/bme.webp",
+  },
+  {
+    id: "eee1103",
+    courseCode: "EEE 1103",
+    courseTitle: "Electrical Fundamentals for Biomedical Engineering",
+    imgSrc: "/subject-pics/eee.webp",
+  },
+  {
+    id: "che1105",
+    courseCode: "CHE 1105",
+    courseTitle: "Physical and Inorganic Chemistry",
+    imgSrc: "/subject-pics/che.webp",
+  },
+  {
+    id: "math1107",
+    courseCode: "MATH 1107",
+    courseTitle: "Applied Mathematics",
+    imgSrc: "/subject-pics/math.webp",
+  },
+  {
+    id: "hum1109",
+    courseCode: "HUM 1109",
+    courseTitle: "Communicative Skills",
+    imgSrc: "/subject-pics/hum.webp",
+  },
+];
 
 export default function FirstYearFirstSemesterMaterials() {
   return (
-    <div>
+    <div className="p-6">
       <BreadcrumbNav />
-
-      <h1>All Subjects</h1>
-      <div className="flex flex-col text-blue-800">
-        <Link href="/materials/1.1/bme1101" className="hover:underline">
-          BME 1101
-        </Link>
-        <Link href="/materials/1.1/eee1103" className="hover:underline">
-          EEE 1103
-        </Link>
-        <Link href="/materials/1.1/che1105" className="hover:underline">
-          CHE 1105
-        </Link>
-        <Link href="/materials/1.1/math1107" className="hover:underline">
-          MATH 1107
-        </Link>
-        <Link href="/materials/1.1/hum1109" className="hover:underline">
-          HUM 1109
-        </Link>
+      <h1 className="text-2xl font-bold text-gray-800 mb-6">All Subjects</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        {subjects.map((subject) => (
+          <Card key={subject.id} className="hover:shadow-xl transition-shadow">
+            <CardHeader className="relative h-40">
+              <Image
+                src={subject.imgSrc}
+                alt={subject.courseCode}
+                fill
+                className="object-cover rounded-t-lg"
+              />
+            </CardHeader>
+            <CardContent className="p-4">
+              <h2 className="text-lg font-semibold text-gray-700">
+                {subject.courseTitle}
+              </h2>
+              <p className="text-sm text-gray-500">{subject.courseCode}</p>
+            </CardContent>
+            <CardFooter className="p-4">
+              <Link
+                href={`/materials/1.1/${subject.id}`}
+                className="text-blue-600 hover:text-blue-800 font-medium flex items-center group"
+              >
+                <span className="hover:underline">View Materials</span>
+                <span className="ml-2 transition-transform transform group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
+            </CardFooter>
+          </Card>
+        ))}
       </div>
     </div>
   );
