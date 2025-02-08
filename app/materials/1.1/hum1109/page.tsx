@@ -3,6 +3,7 @@ import BreadcrumbNav from "@/components/breadcrumb-nav";
 
 export default function HUM1109() {
   const links = [
+    { href: "/materials/1.1/hum1109/syllabus", label: "Syllabus" },
     { href: "/materials/1.1/hum1109/lecture-slides", label: "Lecture Slides" },
     { href: "/materials/1.1/hum1109/books", label: "Books" },
     { href: "/materials/1.1/hum1109/questions", label: "Questions" },

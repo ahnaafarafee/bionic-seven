@@ -20,14 +20,14 @@ interface NavItemType {
 }
 
 const navItems: NavItemType[] = [
-  {
-    title: "Syllabus",
-    href: "#",
-    dropdown: [
-      { title: "Semester 1.1", href: "/syllabus/1.1" },
-      { title: "Semester 1.2", href: "/syllabus/1.2" },
-    ],
-  },
+  // {
+  //   title: "Syllabus",
+  //   href: "#",
+  //   dropdown: [
+  //     { title: "Semester 1.1", href: "/syllabus/1.1" },
+  //     { title: "Semester 1.2", href: "/syllabus/1.2" },
+  //   ],
+  // },
   {
     title: "Materials",
     href: "#",

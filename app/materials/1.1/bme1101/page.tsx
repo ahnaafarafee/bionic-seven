@@ -3,6 +3,7 @@ import BreadcrumbNav from "@/components/breadcrumb-nav";
 
 export default function BME1101() {
   const links = [
+    { href: "/materials/1.1/bme1101/syllabus", label: "Syllabus" },
     { href: "/materials/1.1/bme1101/lecture-slides", label: "Lecture Slides" },
     { href: "/materials/1.1/bme1101/books", label: "Books" },
     { href: "/materials/1.1/bme1101/questions", label: "Questions" },

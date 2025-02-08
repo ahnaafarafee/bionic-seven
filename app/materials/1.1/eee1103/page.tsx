@@ -3,6 +3,7 @@ import BreadcrumbNav from "@/components/breadcrumb-nav";
 
 export default function EEE1103() {
   const links = [
+    { href: "/materials/1.1/eee1103/syllabus", label: "Syllabus" },
     { href: "/materials/1.1/eee1103/lecture-slides", label: "Lecture Slides" },
     { href: "/materials/1.1/eee1103/books", label: "Books" },
     { href: "/materials/1.1/eee1103/questions", label: "Questions" },

@@ -3,6 +3,7 @@ import BreadcrumbNav from "@/components/breadcrumb-nav";
 
 export default function MATH1107() {
   const links = [
+    { href: "/materials/1.1/math1107/syllabus", label: "Syllabus" },
     { href: "/materials/1.1/math1107/lecture-slides", label: "Lecture Slides" },
     { href: "/materials/1.1/math1107/books", label: "Books" },
     { href: "/materials/1.1/math1107/questions", label: "Questions" },

@@ -3,6 +3,7 @@ import BreadcrumbNav from "@/components/breadcrumb-nav";
 
 export default function CHE1105() {
   const links = [
+    { href: "/materials/1.1/che1105/syllabus", label: "Syllabus" },
     { href: "/materials/1.1/che1105/lecture-slides", label: "Lecture Slides" },
     { href: "/materials/1.1/che1105/books", label: "Books" },
     { href: "/materials/1.1/che1105/questions", label: "Questions" },
