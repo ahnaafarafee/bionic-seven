@@ -24,7 +24,7 @@ export default function Notices() {
 
       {/* View All Notices Button */}
       <div className="mt-6 text-center">
-        <Link href="/notices">
+        <Link href="/notice">
           <button className="px-5 py-2 text-white bg-blue-600 hover:bg-blue-700 transition rounded-lg shadow-md">
             View All Notices
           </button>
