@@ -11,7 +11,7 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 
-export default function NoticePage() {
+export default function NoticesPage() {
   const noticesPerPage = 5;
   const [currentPage, setCurrentPage] = useState(1);
 

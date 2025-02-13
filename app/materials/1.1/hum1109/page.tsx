@@ -19,7 +19,7 @@ export default function HUM1109() {
 
       <h1 className="text-3xl font-bold text-gray-800">HUM 1109 Materials</h1>
       <p className="text-gray-600">
-        Explore all resources for Communicative Skills.
+        Explore all resources for Communicative Skill.
       </p>
       <AllMaterialsList links={links} />
     </div>
