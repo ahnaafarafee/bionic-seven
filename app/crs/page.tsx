@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 interface CR {
@@ -10,37 +11,41 @@ interface CR {
   photo: string;
   activeSince: string; // Start date of CR duty
   expiryDate: string; // End date of CR duty
+  fbId: string; // Facebook ID
 }
 
 export default function CRsPage() {
   // Dummy Data
   const crs: CR[] = [
     {
-      name: "Md. Jahidul Islam Nahid",
-      roll: "2329020",
+      name: "Md. Zahidul Islam Nahid",
+      roll: "2329018",
       phone: "+880 1733 807357, +880 1560 000146",
       email: "nahid210797@gmail.com",
-      photo: "/CRs/nahid.jpg",
+      photo: "/CRs/nahid.webp",
       activeSince: "2 November, 2024",
       expiryDate: "Present",
+      fbId: "Nahid.iu.bd",
     },
     {
       name: "Faiza Hossain Nashita",
       roll: "2329025",
       phone: "N/A",
       email: "N/A",
-      photo: "/CRs/rufaida.jpg",
+      photo: "/CRs/nashita.jpg",
       activeSince: "2 November, 2024",
       expiryDate: "19 November 2024",
+      fbId: "N/A",
     },
     {
       name: "Taufiq Hasan",
       roll: "2329005",
       phone: "+880 1772 607591",
       email: "taufiqhasan435@gmail.com",
-      photo: "/CRs/taufiq.jpg",
+      photo: "/CRs/taufiq.webp",
       activeSince: "20 November 2024",
       expiryDate: "Present",
+      fbId: "taufiq.hasan.50951",
     },
     {
       name: "Rufaida Rahman",
@@ -50,6 +55,7 @@ export default function CRsPage() {
       photo: "/CRs/rufaida.jpg",
       activeSince: "20 November 2024",
       expiryDate: "Present",
+      fbId: "N/A",
     },
   ];
 
@@ -59,7 +65,7 @@ export default function CRsPage() {
         Class Representatives (CRs)
       </h1>
       <p className="text-gray-600 text-center mb-10">
-        Here are the current CRs serving the department.
+        Here are the all CRs serving the department.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -115,6 +121,17 @@ export default function CRsPage() {
                   >
                     {cr.email}
                   </a>
+                </p>
+                <p className="text-gray-500 mt-1">
+                  <Button variant={"ghost"} disabled={cr.fbId === "N/A"}>
+                    <a href={`https://www.facebook.com/${cr.fbId}`}>
+                      <img
+                        height="32"
+                        width="32"
+                        src="https://cdn.simpleicons.org/facebook"
+                      />
+                    </a>
+                  </Button>
                 </p>
               </div>
 
