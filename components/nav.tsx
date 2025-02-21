@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { SignedIn, UserButton } from "@clerk/nextjs";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Menu } from "lucide-react";
 import Image from "next/image";
@@ -51,7 +52,6 @@ interface NavItemProps {
 }
 
 export default function Nav() {
-  // For mobile, track which dropdown (by index) is open
   const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(
     null
   );
@@ -61,12 +61,18 @@ export default function Nav() {
       <Link href="/">
         <Image src="/logo.png" width={100} height={100} alt="logo" />
       </Link>
+
       {/* Desktop Navigation */}
-      <div className="hidden md:flex space-x-6">
+      <div className="hidden md:flex space-x-6 items-center">
         {navItems.map((item, index) => (
           <NavItem key={index} item={item} />
         ))}
+        {/* Clerk UserButton for Signed-In Users */}
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </div>
+
       {/* Mobile Navigation */}
       <div className="md:hidden">
         <Sheet>
@@ -76,7 +82,6 @@ export default function Nav() {
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="w-64">
-            {/* Visually hidden title for accessibility */}
             <h2 className="sr-only">Navigation Menu</h2>
             <nav className="space-y-4 mt-6">
               {navItems.map((item, index) => (
@@ -89,6 +94,10 @@ export default function Nav() {
                   setOpenDropdownIndex={setOpenDropdownIndex}
                 />
               ))}
+              {/* Clerk UserButton in Sidebar for Mobile */}
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
             </nav>
           </SheetContent>
         </Sheet>
@@ -104,15 +113,12 @@ function NavItem({
   openDropdownIndex,
   setOpenDropdownIndex,
 }: NavItemProps) {
-  // For desktop, use local state for hover events.
   const [open, setOpen] = useState(false);
 
   if (mobile) {
-    // Ensure the required props exist on mobile.
     const isOpen = openDropdownIndex === index;
     const handleClick = () => {
       if (setOpenDropdownIndex && typeof index === "number") {
-        // If the current dropdown is already open, close it. Otherwise, open this one.
         setOpenDropdownIndex(isOpen ? null : index);
       }
     };
@@ -168,7 +174,6 @@ function NavItem({
       </div>
     );
   } else {
-    // Desktop: show dropdown on hover
     return (
       <div
         className="relative"

@@ -1,7 +1,8 @@
+import Nav from "@/components/nav";
 import { poppins } from "@/lib/fonts";
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import "./globals.css";
-import Nav from "@/components/nav";
 
 export const metadata: Metadata = {
   title: "Bionic 7",
@@ -15,11 +16,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={poppins.className}>
-        <Nav />
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={poppins.className}>
+          <Nav />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
